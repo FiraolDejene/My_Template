@@ -1,0 +1,407 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="/">
+            <span>
+              Job Seeker
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ml-auto">
+              <li class="nav-item ">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'job_applicants' %}">Applicants</a>
+              </li>
+               {% if request.user.is_staff%}
+                <li class="nav-item">
+                <a class="nav-link" href="post_jobs/">Post Jobs</a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">LogOut</a>
+              </li>
+              {% endif %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'posted_jobs' %}">Posted Jobs</a>
+              </li>
+
+              <li class="nav-item">
+              <button type="button" class="btn btn-secondary" id="el" data-container="body"  data-html="true" data-toggle="popover" data-placement="bottom" data-content='
+		<div class="row" style="justify-content: center;">
+{% for i in allb %}
+			<div class="p-1 prod1212">
+				<a href="/single_worker_booked/{{i.id}}" style="text-decoration: none; color: #231f20">
+				<div class="thumb-wrapper mt-2">
+
+					<div class="thumb-content">
+                        <small>Request From -<b>{{i.b_woker}}</b></small>
+						 <span>
+                             <p> For Work -<b>{{i.b_work}}</b></span></p>
+                        <a href="/single_worker_booked/{{i.id}}" class="btn btn-dark my-2">next</a>
+
+
+					</div>
+				</div>
+				</a>
+
+			</div>
+
+{% endfor %}
+
+		</div>
+'>
+  Requests
+</button>
+                </li>
+
+            </ul>
+            <div class="user_option">
+
+              <a class="nav-link" href="#">
+                <i class="fa fa-user" aria-hidden="true">  {{request.user}}</i>
+              </a>
+
+
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="detail-box">
+              <h1>
+                Find Your <br>
+                Best Employee
+              </h1>
+              <p>
+                !!Make Your Dream True!!
+              </p>
+            </div>
+
+          </div>
+          <div class="col-md-6">
+            <div class="img-box">
+              <img src=" {% static 'images/slider-img.png' %} " alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end slider section -->
+  </div>
+
+  <!-- category section -->
+  <section class="category_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Choose From Categories
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <a href="#" class="box">
+            <div class="img-box">
+              <img src="{% static 'images/c1.png' %} " alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Web Design
+              </h5>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4">
+          <a href="#" class="box">
+            <div class="img-box">
+              <img src=" {% static 'images/c2.png' %} " alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Web Development
+              </h5>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4">
+          <a href="#" class="box">
+            <div class="img-box">
+              <img src=" {% static 'images/c3.png' %} " alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Graphic Design
+              </h5>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4">
+          <a href="#" class="box">
+            <div class="img-box">
+              <img src=" {% static 'images/c4.png' %} " alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Seo marketing
+              </h5>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4">
+          <a href="#" class="box">
+            <div class="img-box">
+              <img src=" {% static 'images/c5.png' %} " alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Accounting
+              </h5>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4">
+          <a href="#" class="box">
+            <div class="img-box">
+              <img src="{% static 'images/c6.png' %} " alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Content Writing
+              </h5>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end category section -->
+
+  <!-- about section -->
+
+  <section class="about_section ">
+    <div class="container">
+      <div class="detail-box">
+        <div class="heading_container heading_center">
+          <h2>
+            About Us
+          </h2>
+        </div>
+        <p>
+          Normal distribution of letters, as opposed to using 'Content here, content here', making it look like
+          readable English. Many desktop publishing packages and web page editors has a more-or-less normal
+          distribution of letters, as opposed to using 'Content here, content here', making it look like readable
+          English. Many desktop publishing packages and web page editors
+        </p>
+      </div>
+      <div class="col-md-9 mx-auto px-0">
+        <div class="img-box">
+          <img src="{% static 'images/about-img.png' %} " alt="">
+        </div>
+        <div class="btn-box">
+          <a href="">
+            Read More
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  <!-- job section -->
+
+  <!-- end job section -->
+
+  <!-- client section -->
+
+  <section class="client_section layout_padding-bottom">
+    <div class="container-fluid">
+      <div class="heading_container heading_center psudo_white_primary mb_45">
+        <h2>
+          What says our Clients
+        </h2>
+      </div>
+      <div class="carousel-wrap ">
+        <div class="owl-carousel client_owl-carousel">
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <img src="{% static 'images/client1.jpg' %} " alt="" class="box-img">
+              </div>
+              <div class="detail-box">
+                <div class="client_id">
+                  <div class="client_info">
+                    <h6>
+                      LusDen
+                    </h6>
+                    <p>
+                      magna aliqua. Ut
+                    </p>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis </p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <img src="{% static 'images/client2.jpg' %} " alt="" class="box-img">
+              </div>
+              <div class="detail-box">
+                <div class="client_id">
+                  <div class="client_info">
+                    <h6>
+                      Zen Court
+                    </h6>
+                    <p>
+                      magna aliqua. Ut
+                    </p>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis </p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <img src="{% static 'images/client3.jpg' %} " alt="" class="box-img">
+              </div>
+              <div class="detail-box">
+                <div class="client_id">
+                  <div class="client_info">
+                    <h6>
+                      Zen Court
+                    </h6>
+                    <p>
+                      magna aliqua. Ut
+                    </p>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end client section -->
+
+
+
+  <!-- info section -->
+  <section class="info_section ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h4>
+            Jobs
+          </h4>
+          <p>
+            Established fact that a reader will be distracted by the readable content of a page when looking at its
+            layout. The point of using Lorem Ipsum
+          </p>
+        </div>
+        <div class="col-md-4">
+          <div class="info_logo_box">
+            <a href="">
+              job seeker
+            </a>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            </p>
+          </div>
+          <div class="social_container">
+            <div>
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="info_form">
+            <h4>
+              Newsletter
+            </h4>
+            <form action="">
+              <input type="text" placeholder="Enter Your Email" />
+              <button type="submit">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end info_section -->
+
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a href="https://html.design/">Free Html Templates</a>
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+
+
+{% block js %}
+<script>
+  $('#el').popover();
+
+
+</script>
+
+
+{% endblock %}
+
+{% endblock body %}

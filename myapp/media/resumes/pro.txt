@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>G</h1>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  
+    <!-- country list -->
+    <script>
+    var country_list = ["Ethiopia","Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas"];
+    </script>
+<button type="button" class="w-30 btn btn-lg btn-primary align-items-center ms-5" id="" >Random</button>   
+  
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+      <div class="col-lg-3">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3 text-bg-primary border-primary">
+            <h4 class="my-0 fw-normal">Group1</h4>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled mt-3 mb-4">
+        <div class="mb-3">
+            <label for="cname" class="form-label">Algeria</label>
+            <input type="number" class="form-control" id="cname">
+          </div>
+          <div class="mb-3">
+            <label for="sc1" class="form-label">Ethiopia</label>
+            <input type="number" class="form-control" id="sc1">
+          </div>
+          <div class="mb-3">
+            <label for="sc2" class="form-label">Afganistan</label>
+            <input type="number" class="form-control" id="sc2">
+          </div>
+          <div class="mb-3">
+            <label for="sc3" class="form-label">Australia</label>
+            <input type="number" class="form-control" id="sc3">
+          </div>
+            </ul>
+            <button type="button" class="w-100 btn btn-lg btn-primary">sumit</button>          </div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3 text-bg-primary border-primary">
+            <h4 class="my-0 fw-normal">Group2</h4>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled mt-3 mb-4">
+                <div class="mb-3">
+                    <label for="cname" class="form-label">Albania</label>
+                    <input type="number" class="form-control" id="cname">
+                  </div>
+                  <div class="mb-3">
+                    <label for="sc1" class="form-label">Andorra</label>
+                    <input type="number" class="form-control" id="sc1">
+                  </div>
+                  <div class="mb-3">
+                    <label for="sc2" class="form-label">Anguilla</label>
+                    <input type="number" class="form-control" id="sc2">
+                  </div>
+                  <div class="mb-3">
+                    <label for="sc3" class="form-label">Antigua</label>
+                    <input type="number" class="form-control" id="sc3">
+                  </div>
+            </ul>
+            <button type="button" class="w-100 btn btn-lg btn-primary">sumit</button>          </div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+          <div class="card-header py-3 text-bg-primary border-primary">
+            <h4 class="my-0 fw-normal">Group3</h4>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled mt-3 mb-4">
+                <div class="mb-3">
+                    <label for="cname" class="form-label">Barbuda</label>
+                    <input type="number" class="form-control" id="cname">
+                  </div>
+                  <div class="mb-3">
+                    <label for="sc1" class="form-label">Argentina</label>
+                    <input type="number" class="form-control" id="sc1">
+                  </div>
+                  <div class="mb-3">
+                    <label for="sc2" class="form-label">Armenia</label>
+                    <input type="number" class="form-control" id="sc2">
+                  </div>
+                  <div class="mb-3">
+                    <label for="sc3" class="form-label">Aruba</label>
+                    <input type="number" class="form-control" id="sc3">
+                  </div>
+            </ul>
+            <button type="button" class="w-100 btn btn-lg btn-primary">sumit</button>
+                  </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+          <div class="card-header py-3 text-bg-primary border-primary">
+            <h4 class="my-0 fw-normal">Group4</h4>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled mt-3 mb-4">
+                <div class="mb-3">
+                    <label for="cname" class="form-label">Austria</label>
+                    <input type="number" class="form-control" id="cname">
+                  </div>
+                  <div class="mb-3">
+                    <label for="sc1" class="form-label">Azerbaijan</label>
+                    <input type="number" class="form-control" id="sc1">
+                  </div>
+                  <div class="mb-3">
+                    <label for="sc2" class="form-label">Bahamas</label>
+                    <input type="number" class="form-control" id="sc2">
+                  </div>
+                  <div class="mb-3">
+                    <label for="sc3" class="form-label">Score3</label>
+                    <input type="number" class="form-control" id="sc3">
+                  </div>
+            </ul>
+            <button type="button" class="w-100 btn btn-lg btn-primary">sumit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--  -->
+    <div id="container" class="pt-5" >
+
+    </div>
+</body>
+</html>

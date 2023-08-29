@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% block title%} YOUR REQUEST  {% endblock %}
+{% block body %}
+{% load crispy_forms_tags %}
+<style type="text/css">
+	.prod1212 .thumb-wrapper {
+		padding: 25px 15px;
+		background: #fff;
+		border-radius: 6px;
+		text-align: center;
+		position: relative;
+		box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+	}
+
+
+
+	.prod1212 .img-box {
+		height: 120px;
+		margin-bottom: 10px;
+		width: 100%;
+		position: relative;
+	}
+
+	.prod1212 img {
+		max-width: 100%;
+		max-height: 100%;
+		display: inline-block;
+		position: absolute;
+		bottom: 0;
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+	}
+
+	.prod1212 h4 {
+		font-size: 18px;
+	}
+
+	.prod1212 h4,
+	.carouselp,
+	.carouselul {
+		margin-bottom: 5px;
+	}
+
+	.prod1212 .thumb-content .btn {
+		color: #231f20;
+		border-radius: 0;
+		font-size: 11px;
+		text-transform: uppercase;
+		font-weight: bold;
+		background: none;
+		border: 1px solid #ccc;
+		padding: 5px 10px;
+		margin-top: 5px;
+		line-height: 16px;
+	}
+
+	.prod1212 .thumb-content .btn:hover,
+	.thumb-content .btn:focus {
+		color: #fff;
+		background: #00BFFF;
+		box-shadow: none;
+	}
+
+	.prod1212 .thumb-content .btn i {
+		font-size: 14px;
+		font-weight: bold;
+		margin-left: 5px;
+	}
+
+	h2 {
+		color: #000;
+		font-size: 26px;
+		font-weight: 300;
+		text-align: center;
+		text-transform: uppercase;
+		position: relative;
+	}
+
+	h2 b {
+		color: #DEB887;
+	}
+
+	h2::after {
+		content: "";
+		width: 100px;
+		position: absolute;
+		margin: 0 auto;
+		height: 4px;
+		border-radius: 1px;
+		background: #00BFFF;
+		left: 0;
+		right: 0;
+		bottom: -5px;
+	}
+
+	.item-price {
+		font-size: 13px;
+		padding: 2px 0;
+	}
+
+	.prod1212 {
+		width: 190px;
+	}
+
+	@media(max-width: 700px) {
+		.prod1212 {
+			width: 185px;
+		}
+	}
+
+	@media(max-width: 399px) {
+		.prod1212 {
+			width: 175px;
+		}
+	}
+
+	@media(max-width: 359px) {
+		.prod1212 {
+			width: unset;
+		}
+	}
+
+.btn-1{
+        border-radius: 6px;
+		text-align: center;
+		position: relative;
+		  transition: transform .2s;
+		box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);
+}
+.thumb-wrapper:hover {
+  transform: scale(.9);
+}
+</style>
+
+<div class="alert alert-warning col-12">
+                    <strong>
+                        <h5 style="text-align:center" >Owner</h5>
+                    </strong>
+                </div>
+
+
+<h2>{{request.user}} - <b>Your Request -</b></h2>
+
+		<div class="row" style="justify-content: center;">
+{% for i in allb %}
+			<div class="p-1 prod1212">
+				<a href="/single_worker_booked/{{i.id}}" style="text-decoration: none; color: #231f20">
+				<div class="thumb-wrapper mt-2">
+
+					<div class="thumb-content">
+                        <small>Request From -<b>{{i.b_woker}}</b></small>
+						 <span>
+                             <p> <i	class="fa fa-inr" aria-hidden="true"></i>For Work -<b>{{i.b_work}}</b></span></p>
+                        <a href="/single_worker_booked/{{i.id}}" class="btn btn-dark my-2">next</a>
+
+
+					</div>
+				</div>
+				</a>
+			</div>
+{% endfor %}
+		</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+ <div class="p-5 bg-light "style="background-color: lightblue;">
+    <div class="container">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <a href="{% url 'home' %}" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                <span class="fs-4" style="font-size: 24px;"><i class="fas fa-briefcase"></i> Job Seeker</span>
+            </a>
+
+            <ul class="nav nav-pills" style="font-size: 20px;">
+                <li class="nav-item"><a href="{% url 'home' %}" class="nav-link active" aria-current="page"><i class="fas fa-home"></i> Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-suitcase"></i> Jobs</a></li>
+            </ul>
+        </header>
+    </div>
+
+    <div class="container py-5">
+        <div class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+            <div class="container-fluid py-5">
+                <h1 class="display-5 fw-bold">Apply For</h1>
+                <hr class="my-4">
+
+                <!-- Job Details -->
+                <div class="row">
+                    <div class="col-md-6 order-md-2">
+                        <div class="card border-3 mb-3">
+                            <div class="card-body">
+                                <h2 class="card-title">Name - <b>{{work.person_name}}</b></h2>
+                                <p class="card-text">Work Type -{{work.work_type}}</p>
+                                <p class="card-text">Pay -{{work.pay_for_work}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 order-md-1">
+                        <div class="card border-0 mb-3">
+                            <div class="card-body">
+                                <h2 class="card-title">Work Description</h2>
+                                <img src="{{work.image}}" alt="Job Image" class="img-fluid rounded mb-3">
+                                <p class="card-text">{{work.work_dec}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form method="post" action="" class="pt-4">
+                    {% csrf_token %}
+                    <input type="hidden" id="work_type" name="work_type" value="{{work.work_type}}">
+                    <input type="hidden" id="usr" name="worker" value="{{request.user}}">
+                    <input type="hidden" id="wrk_id" name="worker_id" value="{{request.user.id}}">
+                    <input type="hidden" id="person_name" name="person_name" value="{{work.person_name}}">
+                    <button id="pr" type="submit" class="btn btn-primary btn-lg">Apply</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footer mt-auto py-3 bg-dark">
+  <div class="container text-center">
+      <div class="row">
+          <div class="col-md-4">
+              <h4 style="color: white;">About Us</h4>
+              <p style="color: white;">Job Seeker is a leading platform for job search and application, helping millions of individuals find their dream jobs.</p>
+          </div>
+          <div class="col-md-4">
+              <h4 style="color: white;">Quick Links</h4>
+              <ul class="list-unstyled">
+                  <li><a href="#" style="color: white;">Home</a></li>
+                  <li><a href="#" style="color: white;">About</a></li>
+                  <li><a href="#" style="color: white;">Jobs</a></li>
+              </ul>
+          </div>
+          <div class="col-md-4">
+              <h4 style="color: white;">Contact Us</h4>
+              <p style="color: white;">123, Main Street, Your City, Country</p>
+              <p style="color: white;">info@jobseeker.com</p>
+          </div>
+      </div>
+      <hr>
+      <span class="text-muted" style="color: white;">&copy; <span id="displayYear" style="color: white;" ></span> All Rights Reserved By <a href="https://html.design/" style="color: white;">Free Html Templates</a></span>
+  </div>
+</footer>
+{% block js %}
+
+{% endblock %}
+{% endblock body %}

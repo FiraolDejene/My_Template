@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for i in worker %}
+{% if i.action == 'Accept' %}
+<h1>{{i.b_Owner}}</h1>
+<h1>{{i.b_work}}</h1>
+<h1>{{i.action}}</h1>
+
+
+
+  <form id="post-form" method="POST" action="/room/checkview">
+        {% csrf_token %}
+        <label>Room Name</label>
+        <input type="text" name="room_name" id="room_name"  value="{{i.id}}" width="100px" />
+        <label>Username</label>
+        <input type="text" name="username" id="username" value="{{request.user}}"  width="100px" />
+        <input type="submit" value="Enter Room">
+    </form>
+{% endif %}
+{% endfor %}
+</body>
+</html>
